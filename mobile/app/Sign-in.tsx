@@ -84,7 +84,7 @@ export default function SignInScreen() {
         )}
       </Pressable>
 
-      <Link href="/sign-up" asChild>
+      <Link href="/Sign-up" asChild>
         <Pressable>
           <Text style={styles.link}>
             Don't have an account? Sign Up
