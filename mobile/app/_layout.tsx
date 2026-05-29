@@ -14,10 +14,10 @@ const tokenCache = {
 export default function RootLayout() {
   return (
     <ClerkProvider
-      tokenCache={tokenCache}
       publishableKey={
         process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!
       }
+      tokenCache={tokenCache}
     >
       <Stack />
     </ClerkProvider>
