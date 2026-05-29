@@ -26,7 +26,8 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router","@clerk/expo",
+      "expo-router",
+      "@clerk/expo",
       [
         "expo-splash-screen",
         {
@@ -40,7 +41,8 @@
         }
       ],
       "@clerk/expo",
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
