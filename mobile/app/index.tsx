@@ -1,21 +1,16 @@
-import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { useAuth } from '@clerk/clerk-expo';
+import { Text, View } from 'react-native';
 
-export default function Index() {
+export default function Home() {
+  const { isSignedIn } = useAuth();
+
+  if (!isSignedIn) {
+    return null;
+  }
+
   return (
-    <View
-      style={style.container}
-    >
-      <Text>aman</Text>
-      <Link href={"/Sign-in"}>Sign-in</Link>
+    <View>
+      <Text>welcome to you profile</Text>
     </View>
   );
 }
-
-const style = StyleSheet.create({
-  container:{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }
-})
