@@ -4,7 +4,7 @@ import React from 'react'
 const signInPage = () => {
   return (
     <View>
-      <Text>sign-up</Text>
+      <Text>signInPage</Text>
     </View>
   )
 }

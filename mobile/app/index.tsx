@@ -1,26 +1,32 @@
-import { useAuth, useClerk } from '@clerk/clerk-expo';
-import { Link } from 'expo-router';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text } from 'react-native'
+import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { Link } from 'expo-router'
+import { useAuth } from '@clerk/expo'
 
-export default function Home() {
-  const { isSignedIn } = useAuth();
-  const { signOut } = useClerk();
-  console.log(isSignedIn)
-  if (!isSignedIn) {
-    return (
-      <View>
-        <Text>pls login </Text>
-        <Link href={"/Sign-in"}>signin</Link>
-      </View>
-    );
+const Home = () => {
+  const { isSignedIn, isLoaded } = useAuth();
+  console.log("isSignedIn :",isSignedIn)
+
+  console.log("isLoaded :",isLoaded)
+
+  if(!isLoaded){
+    <SafeAreaView>
+      <Text>Loading.....</Text>
+    </SafeAreaView>
   }
 
+  if(isSignedIn){
+    <SafeAreaView>
+      <Text>pls signin first </Text>
+      <Link href={'/(auth)/sign-in'} >sign in</Link>
+    </SafeAreaView>
+  }
   return (
-    <View>
-      <Text>welcome to you profile</Text>
-      <TouchableOpacity  onPress={()=>signOut}>
-          <Text>signOut</Text>
-      </TouchableOpacity>
-    </View>
-  );
+    <SafeAreaView>
+      <Text>Home</Text>
+    </SafeAreaView>
+  )
 }
+
+export default Home
